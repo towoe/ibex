@@ -30,6 +30,7 @@ for file in ../rtl/*.sv; do
   module=`basename -s .sv $file`
   sv2v \
     --define=SYNTHESIS \
+    --define=RISCV_FORMAL \
     ../rtl/*_pkg.sv \
     $file \
     > syn_out/${module}.v
@@ -46,6 +47,8 @@ rm -f syn_out/*_pkg.v
 # remove the latch-based register file (because we will use the
 # flop-based one instead)
 rm -f syn_out/ibex_register_file_latch.v
+rm -f syn_out/ibex_tracer.v
+rm -f syn_out/ibex_core_tracing.v
 
 #-------------------------------------------------------------------------
 # run yosys
