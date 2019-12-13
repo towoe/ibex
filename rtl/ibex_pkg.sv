@@ -89,6 +89,12 @@ typedef enum logic[1:0] {
   PRIV_LVL_U = 2'b00
 } priv_lvl_e;
 
+// XLEN
+typedef enum logic [1:0] {
+  PRIV_LVL_32 = 2'b01,
+  PRIV_LVL_64 = 2'b10
+} priv_lvl_xl;
+
 // Constants for the dcsr.xdebugver fields
 typedef enum logic[3:0] {
    XDEBUGVER_NO     = 4'd0, // no external debug support

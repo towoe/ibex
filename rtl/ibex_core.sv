@@ -72,6 +72,7 @@ module ibex_core #(
     output logic        rvfi_halt,
     output logic        rvfi_intr,
     output logic [ 1:0] rvfi_mode,
+    output logic [ 1:0] rvfi_ixl,
     output logic [ 4:0] rvfi_rs1_addr,
     output logic [ 4:0] rvfi_rs2_addr,
     output logic [31:0] rvfi_rs1_rdata,
@@ -705,6 +706,7 @@ module ibex_core #(
       rvfi_order             <= '0;
       rvfi_insn              <= '0;
       rvfi_mode              <= {PRIV_LVL_M};
+      rvfi_ixl               <= {PRIV_LVL_32};
       rvfi_rs1_addr          <= '0;
       rvfi_rs2_addr          <= '0;
       rvfi_pc_rdata          <= '0;
@@ -726,6 +728,7 @@ module ibex_core #(
       rvfi_order             <= rvfi_order + 64'(rvfi_valid);
       rvfi_insn              <= rvfi_insn_id;
       rvfi_mode              <= {priv_mode_id};
+      rvfi_ixl               <= {PRIV_LVL_32};
       rvfi_rs1_addr          <= rvfi_rs1_addr_id;
       rvfi_rs2_addr          <= rvfi_rs2_addr_id;
       rvfi_pc_rdata          <= pc_id;
