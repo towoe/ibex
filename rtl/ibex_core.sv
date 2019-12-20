@@ -732,7 +732,7 @@ module ibex_core #(
       rvfi_rs1_addr          <= rvfi_rs1_addr_id;
       rvfi_rs2_addr          <= rvfi_rs2_addr_id;
       rvfi_pc_rdata          <= pc_id;
-      rvfi_pc_wdata          <= pc_if;
+      rvfi_pc_wdata          <= pc_set ? jump_target_ex : pc_if;
       rvfi_mem_rmask         <= rvfi_mem_mask_int;
       rvfi_mem_wmask         <= data_we_o ? rvfi_mem_mask_int : 4'b0000;
       rvfi_valid             <= instr_ret;
